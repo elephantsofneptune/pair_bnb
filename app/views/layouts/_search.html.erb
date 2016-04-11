@@ -1,0 +1,11 @@
+
+<!--SEARCH BOX-->
+<input type="text" id="query" name="query" />
+    <script src="jquery.js"></script>
+    <script src="typeahead.js"></script>
+    <script>
+      $("#query").typeahead({
+        name: "book",
+        remote: "/books/autocomplete?query=%QUERY"
+      });
+    </script>

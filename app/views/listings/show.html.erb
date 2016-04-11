@@ -1,0 +1,42 @@
+<!--
+<p id="notice"><%= notice %></p>
+					
+					<h1 class="tag-title">Details</h1>
+                    <h3><%=@listing.description%></h3>
+                    <h5>City: <%=@listing.city%></h5>
+                    <h5>Property type: <%=@listing.accomodates%></h5>
+                    <h5>Accommodates: <%=@listing.city%></h5>
+                    <h5>Bedrooms: <%=@listing.price%></h5>
+                    <h5>Beds: <%=@listing.smoking_room%></h5>
+                    <h5>Bathrooms: <%=@listing.pet_friendly%></h5>
+                    <h5>Price: $<%=@listing.apartment%></h5>
+-->
+<div class="col-sm-4 listing-image">
+        <img src="<%=@listing.photo_url%>" alt="" class="img-rounded img-responsive"></img>
+</div>
+
+  <div class="data col-sm-4">
+    <div>
+      <div class="details primary">
+        <h4 itemprop="name"><%=@listing.description%></h4>
+        <p>Listing City: <%=@listing.city%></p>
+        <p>Accommodates: <%=@listing.accomodates%></p>
+
+      </div>
+      <div class="pricing secondary">
+        <p class="currency">MYR <%=@listing.price%></p>
+        <p class="per-night">per night</p>
+          <button class="btn btn-sm btn-deal"><span class="instant-booking-icon"></span>Book Now!</button>
+      </div>
+    </div>
+
+<!-- Extra small button group -->
+<div class="btn-group col-sm-4">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    More Details <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li>Smoking Room: <%=@listing.smoking_room%> </li>
+    <li>Pet-friendly: <%=@listing.pet_friendly%> </li>
+  </ul>
+</div>
