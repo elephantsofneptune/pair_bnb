@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include Clearance::User
   require 'securerandom'
 
-  include Clearance::User
+  #include Clearance::User
 
       has_many :authentications, :dependent => :destroy
       has_many :listings, :dependent => :destroy

@@ -32,6 +32,9 @@ gem 'figaro'
 #searchkick
 gem 'searchkick'
 
+#tire gem
+gem 'tire'
+
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-facebook'

@@ -1,11 +1,20 @@
 
 <!--SEARCH BOX-->
-<input type="text" id="query" name="query" />
-    <script src="jquery.js"></script>
-    <script src="typeahead.js"></script>
-    <script>
-      $("#query").typeahead({
-        name: "book",
-        remote: "/books/autocomplete?query=%QUERY"
-      });
-    </script>
+<h1> Search </h1>
+
+<%= form_tag listings_path, method: :get do %>
+<p> 
+	<%= text_field_tag :query, params[:query] %>
+	<%= submit_tag "Search", name: nil %>
+<p>
+<%end%>
+
+<div id ="listings">
+	<%@listings.each do |listing| %>
+	<h3><%=@listing.description%></h3>
+	<p>Listing City: <%=@listing.city%></p>
+	<p>Accommodates: <%=@listing.accomodates%></p>
+	<p>MYR <%=@listing.price%></p>
+	<p>Hosted by:<%=@listing.listing.user_id%></p>
+</div>
+<%end%>
