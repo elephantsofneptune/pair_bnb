@@ -26,6 +26,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Rails authentication with email & password using clearance gem.
 gem 'clearance'
 
+#figaro
+gem 'figaro'
+
+#searchkick
+gem 'searchkick'
+
+#OmniAuth
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

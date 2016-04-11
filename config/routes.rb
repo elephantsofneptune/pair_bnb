@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  get 'welcome/index'
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -14,8 +17,17 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  #OmniAuth
+
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  resources :users, only: [:show, :edit, :update, :destroy] 
+
+  get '/login' , :to => 'sessions#new', :as => :login
+
+  resources :listings
+
   # Example resource route with options:
-  #   resources :products do
+  #   resources :products destroy
   #     member do
   #       get 'short'
   #       post 'toggle'
