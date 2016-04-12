@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// on click .......
+$("#btn btn-sm btn-deal").click(function() {
+	datepicker.formatDate( "yy-mm-dd", new Date( 2007, 1 - 1, 26 );
+});
+

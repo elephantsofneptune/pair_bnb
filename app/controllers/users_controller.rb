@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
+  before_action :require_login
+
 def index
 	@users = User.all
+end
+
+def show
+  @user = User.find(params[:id])
 end
 
 def new
@@ -49,7 +55,10 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.fetch(:user, {})
+          params.require(:user).permit(:first_name, :email, :password, :encrypted_password, :avatar)
+    end
+
+    def user_avatar
     end
 
 end

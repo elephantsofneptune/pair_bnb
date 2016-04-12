@@ -37,6 +37,12 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+#datepicker
+gem 'jquery-ui-rails'
+
+gem 'mini_magick'
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

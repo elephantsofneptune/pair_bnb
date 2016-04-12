@@ -4,8 +4,8 @@ class CreateReservations < ActiveRecord::Migration
       t.timestamps null: false
       t.integer :listing_id
       t.integer :user_id
-      t.string :start_date
-      t.string :end_date
+      t.date :start_date
+      t.date :end_date
     end
   end
 end

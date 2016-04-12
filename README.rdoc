@@ -26,3 +26,20 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+
+
+
+git checkout <branch-name>
+code it out
+git add .
+git commit -m "user can signin"
+git push origin <branch-name>
+git checkout master
+
+go to github.com
+create pull request on that repo,
+get someone/ urself to review the code and close and merge that pull request
+
+*after someone fullfill ur pull request, they can get the latest file frmo master branch, by typing git pull origin master, but u have to make sure when u type git pull origin master, you should had done git checkout master first.
