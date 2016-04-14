@@ -2,3 +2,14 @@
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+
+
+<!-- <p id="notice"><%= notice %></p> -->
+<h2>Your Reservation Details</h2>
+<br>
+<p>Check in: <%= @reservation.start_date %></p>
+<p>Check out: <%= @reservation.end_date %></p>
+<p>No. of Nights: <%= (@reservation.end_date - @reservation.start_date).to_i %></p>  <div class="btn-toolbar">
+   <%= link_to "Edit", edit_reservation_path(@reservation), class: "btn btn-secondary"  %>
+   <%= link_to 'Back', reservations_path, class: "btn btn-secondary"  %>
+ </div></ul>

@@ -13,14 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-
 //= require moment
 //= require bootstrap-datetimepicker
+//= require_tree .
 
-// on click .......
 
-    $('#sandbox-container div').datepicker({
-        todayBtn: true,
-        todayHighlight: true
-    });
+
+

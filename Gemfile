@@ -45,6 +45,7 @@ gem 'carrierwave'
 
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'braintree'
 
 
 # Use ActiveModel has_secure_password

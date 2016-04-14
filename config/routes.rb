@@ -29,6 +29,19 @@ Rails.application.routes.draw do
   get '/login' , :to => 'sessions#new', :as => :login
 
   get '/listings', :to => 'listings#index'
+
+  get '/reservations/:id(.:format)', :to => 'reservations#show'
+
+      resources :listings do
+       resources :reservations
+    end 
+
+    resources :users do
+      resources :reservations
+    end 
+
+        resources :reservations, only: [:create, :destroy]
+
   # Example resource route with options:
   #   resources :products destroy
   #     member do

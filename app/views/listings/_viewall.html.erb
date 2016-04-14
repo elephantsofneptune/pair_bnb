@@ -1,22 +1,7 @@
 
       <div class="container marketing">
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-        <%@listing.each do |x|%>
-          <img class="img-circle" src= "<%= image_tag x.image_url.to_s %>" alt="Generic placeholder image" width="140" height="140">
-          <h2><%=x.description%></h2>
-            <h6>Hosted By:<%=x.user.first_name%></h6>
-            <p>Listing City: <%=x.city%></p>
-            <p>Address: <%=x.address%></p>
-            <p>Accommodates: <%=x.accomodates%></p>
-          <p>MYR <%=x.price%>per night</p>
-          <br>
-          <p>Availabile From: <%= x.start_date %>
-          <%= x.end_date %></p>
-          <p><a class="btn btn-default" href="#" role="button">Book Now &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+<!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
           <h2>Heading</h2>
@@ -59,11 +44,6 @@
    
 
         <img src="" alt="" class="img-thumbnail"><%= image_tag x.image_url.to_s %></img>
-
-          <div="sandbox-container div">
-          Availabile From: <%= x.start_date %>
-          <%= x.end_date %>
-          </div>
 
           <%end%>
 

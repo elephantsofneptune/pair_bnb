@@ -3,10 +3,13 @@ class ListingsController < ApplicationController
 	def show
 		@listing = Listing.find(params[:id])
 		@user = User.find(@listing.user_id)
+		@reservation = Reservation.new
 	end
 
 	def new
 		@listing = Listing.new
+		@reservation = Reservation.new
+
 	end
 
 	def index
