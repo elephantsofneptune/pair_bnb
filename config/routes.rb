@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
     resources :listings
     resources :reservations
     resources :users
+    resources :payments, only: [:new, :create]
 
 
     root 'home#index' 

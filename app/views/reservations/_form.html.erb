@@ -3,5 +3,6 @@
  Booking Period: 
  <br><%= f.date_select :start_date %></br>
  <br><%= f.date_select :end_date %></br>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
 </br>
   <%= button_to "Request to Book", new_reservation_path, class: "btn btn-secondary" %><% end %>

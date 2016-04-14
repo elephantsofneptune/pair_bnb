@@ -9,7 +9,15 @@
 <br>
 <p>Check in: <%= @reservation.start_date %></p>
 <p>Check out: <%= @reservation.end_date %></p>
-<p>No. of Nights: <%= (@reservation.end_date - @reservation.start_date).to_i %></p>  <div class="btn-toolbar">
+<p>No. of Nights: <%= (@reservation.end_date - @reservation.start_date).to_i %></p>  
+
+<p> Listing ID: <%=@reservation.listing.id.to_i%></p>
+<p> Listing $$$: <%=@reservation.listing.price.to_i%></p>
+<p> Total $$$: <%=@stay.to_i%></p>
+
+<div class="btn-toolbar">
    <%= link_to "Edit", edit_reservation_path(@reservation), class: "btn btn-secondary"  %>
    <%= link_to 'Back', reservations_path, class: "btn btn-secondary"  %>
- </div></ul>
+ </div>
+
+ <%= link_to 'Pay Now', new_payment_path + "?id=" + @reservation.secure_token.to_s %>

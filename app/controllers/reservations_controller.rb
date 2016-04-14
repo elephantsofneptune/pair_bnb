@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/1.json
   def show
     @reservation = Reservation.find(params[:id])
+    @stay = @reservation.listing.price.to_i*(@reservation.end_date - @reservation.start_date)
   end
 
   # GET /reservations/new
@@ -61,6 +62,12 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def stay
+    @reservation = Reservation.find(params[:id])
+    @stay = @reservation.listing.price.to_i*(@reservation.end_date - @reservation.start_date)
+    #@total_amount = @stay.to_i * @listing.price.to_i
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
@@ -69,6 +76,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date)
+      params.require(:reservation).permit(:start_date, :end_date, :listing_id)
     end
 end
