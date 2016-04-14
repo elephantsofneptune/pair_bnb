@@ -25,11 +25,10 @@ Rails.application.routes.draw do
   #OmniAuth
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  resources :users, only: [:show, :edit, :update, :destroy] 
 
   get '/login' , :to => 'sessions#new', :as => :login
 
-
+  get '/listings', :to => 'listings#index'
   # Example resource route with options:
   #   resources :products destroy
   #     member do

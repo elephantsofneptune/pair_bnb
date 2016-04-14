@@ -15,9 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
+//= require moment
+//= require bootstrap-datetimepicker
 
 // on click .......
-$("#btn btn-sm btn-deal").click(function() {
-	datepicker.formatDate( "yy-mm-dd", new Date( 2007, 1 - 1, 26 );
-});
 
+    $('#sandbox-container div').datepicker({
+        todayBtn: true,
+        todayHighlight: true
+    });

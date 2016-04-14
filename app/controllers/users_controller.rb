@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
 
 def index
 	@users = User.all
@@ -21,7 +21,7 @@ def create
 @user = User.new(user_params)
 respond_to do |format|
 if @user.save
-	format.html { redirect_to @user, notice: 'User was successfully created.' }
+	format.html { redirect_to user_path(@user.id), notice: 'User was successfully created.' }
 	      else
 	        format.html { render :new }
 	   end

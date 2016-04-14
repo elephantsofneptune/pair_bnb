@@ -1,4 +1,36 @@
+<%= render partial: "layouts/navbar" %>       
 
-<h1>List Your Products Here:</h1>
+      <!-- Three columns of text below the carousel -->
+ <div class="row">
+  <div class="col-sm-9">
+  <h1> Top Listings: </h1>
+	 <div class="row">
+	  <div class="col-md-4">        
 
- 	
+	  		<%@listing.each do |x|%>
+	          <%=image_tag x.image_url, class: "img-circle", width: 140, height: 140 %> 
+	          <h2><%=x.description%></h2>
+	            <h6>Hosted By:<%=x.user.first_name%></h6>
+	            <p>Listing City: <%=x.city%></p>
+	            <p>Address: <%=x.address%></p>
+	            <p>Accommodates: <%=x.accomodates%></p>
+	          <p>MYR <%=x.price%>per night</p>
+	          <br>
+	          <p>Availabile From: <%= x.start_date %>
+	          <%= x.end_date %></p>
+	          <p><a class="btn btn-default" href="#" role="button">Book Now &raquo;</a></p>
+	        </div>
+	<%end%>
+	    
+
+	<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+
+	<script type="text/javascript">
+	$(function() {
+	    $('input[name="daterange"]').daterangepicker();
+	});
+	</script>
+
+		</div>
+	</div>
+</div>
