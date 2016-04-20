@@ -29,8 +29,8 @@ gem 'clearance'
 #figaro
 gem 'figaro'
 
-#searchkick
-gem 'searchkick'
+#search
+gem 'pg_search'
 
 #OmniAuth
 gem 'omniauth'
