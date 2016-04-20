@@ -1,21 +1,27 @@
-<div class="row"> 
-	<div class="col-md-3">
-		<div class="center">
-			<%= image_tag avatar_url(@user), class: "avatar-full"%>
-		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">Verification</div>
-			<div class="panel-body">
-				Email</br>
-				Phone number
-			</div>
-		</div>
-	</div>
+<%= render partial: "layouts/navbar" %>
 
-	<div class="col-md-9">
-		<h2><%= @user.fullname %></h2>
-		<div class="description row-space-3">
-			<%= @user.description %>
-		</div>
-	</div>
+<h2>Welcome Back <%= current_user.first_name %>!</h2>
+
+<p>Email address: <%= current_user.email %></p>
+<div id='profile_pic'>
+ <h4> Your profile picture <br>
+ <%= image_tag current_user.avatar.url if current_user.avatar? %></h4>
 </div>
+
+<div class="btn-toolbar">
+<%= link_to "Edit", edit_user_path, class: "btn btn-primary" %>
+<%= button_to "Delete", {:controller => "users", :action => 'destroy', :id => @user.id}, :confirm => "Are you sure you want to delete your account?", :method => :delete, class: "btn btn-primary" %>
+</div>
+
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>

@@ -29,13 +29,24 @@ gem 'clearance'
 #figaro
 gem 'figaro'
 
-#searchkick
-gem 'searchkick'
+#search
+gem 'pg_search'
 
 #OmniAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+
+#datepicker
+gem 'jquery-ui-rails'
+
+gem 'mini_magick'
+gem 'carrierwave'
+
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'braintree'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

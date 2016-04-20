@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'payments/new'
+
+    resources :listings
+    resources :reservations
+    resources :users
+    resources :payments, only: [:new, :create]
+
+
+    root 'home#index' 
+    
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get 'welcome/index'
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  #root 'home/reservations'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -20,11 +28,22 @@ Rails.application.routes.draw do
   #OmniAuth
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  resources :users, only: [:show, :edit, :update, :destroy] 
 
   get '/login' , :to => 'sessions#new', :as => :login
 
-  resources :listings
+  get '/listings', :to => 'listings#index'
+
+  get '/reservations/:id(.:format)', :to => 'reservations#show'
+
+      resources :listings do
+       resources :reservations
+    end 
+
+    resources :users do
+      resources :reservations
+    end 
+
+        resources :reservations, only: [:create, :destroy]
 
   # Example resource route with options:
   #   resources :products destroy

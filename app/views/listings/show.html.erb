@@ -11,32 +11,60 @@
                     <h5>Bathrooms: <%=@listing.pet_friendly%></h5>
                     <h5>Price: $<%=@listing.apartment%></h5>
 -->
-<div class="col-sm-4 listing-image">
-        <img src="<%=@listing.photo_url%>" alt="" class="img-rounded img-responsive"></img>
+
+<%= render partial: "layouts/navbar" %>
+
+
+<div class="jumbotron" style="background-image: url(https://resources.vrbo.com/resources/44226/images/banner-438967.jpg); background-size: auto; height: 400px">
+<h1 class ="jumbtotron"/> </h1>
 </div>
 
-  <div class="data col-sm-4">
-    <div>
-      <div class="details primary">
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">
+    <%= image_tag @listing.image_url.to_s %>
+  </div>
+
+  <div class="col-md-3 col-md-offset-3">
+     <div class="details primary">
         <h4 itemprop="name"><%=@listing.description%></h4>
+        <h6>Uploaded By: <%=@listing.user.first_name%></h6>
         <p>Listing City: <%=@listing.city%></p>
+        <p>Address: <%=@listing.address%></p>
         <p>Accommodates: <%=@listing.accomodates%></p>
+        <p>Listing ID: <%=@listing.id%></p>
+     </div>
+        <div class="col-xs-6 .col-md-6">
+        <% if @current_user_id == @listing.user_id %>
+          <%= link_to "edit", edit_listing_path(@listing) %> |
+          <%= link_to "Delete", listing_path(@listing), :confirm => "Are you sure?", :method => :delete %>
+          <%else%>
+              <%= render partial: "reservations/form" %>
+          <%end%>
+          <!--
+          <div class="calendar-pop-up">
+                <input type="text" name="daterange" value="" />
 
-      </div>
-      <div class="pricing secondary">
-        <p class="currency">MYR <%=@listing.price%></p>
-        <p class="per-night">per night</p>
-          <button class="btn btn-sm btn-deal"><span class="instant-booking-icon"></span>Book Now!</button>
-      </div>
-    </div>
+                <script type="text/javascript">
+                $(function() {
+                    $('input[name="daterange"]').daterangepicker({
+                    },function(start, end, label) {
+  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')"});    
+                    });
+                </script>
+          -->
 
-<!-- Extra small button group -->
-<div class="btn-group col-sm-4">
-  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    More Details <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li>Smoking Room: <%=@listing.smoking_room%> </li>
-    <li>Pet-friendly: <%=@listing.pet_friendly%> </li>
-  </ul>
+
+
+
+
+          </div>
+      </div>
+  </div>
 </div>
+
+
+
+
+
+
+

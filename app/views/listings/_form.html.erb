@@ -1,11 +1,26 @@
 
 <%= form_for(@listing) do |f|%>
 
-<p>Fill In The Description<%= f.text_field :description %></p></br>
-<p>Accomodates how many?<%= f.text_field :accomodates %></p></br>
-<p>Your City<%= f.text_field :city %></p></br>
-<p>Rental Price<%= f.text_field :price %></p></br>
-<p>Upload Your Photo Here<%= f.text_field :photo_url %></p></br>
-<p><%=f.submit%></p>
+<p>Fill In Your Listings Here</p>
+<br><%= f.text_field :description %></p></br>
+<p>Accomodates how many?
+<br><%= f.text_field :accomodates %></p></br>
+<p> City
+<br><%= f.text_field :address %></p></br>
+<p> Address
+<br><%= f.text_field :city %></p></br>
+<p>Rental Price (MYR)
+<br><%= f.text_field :price %></p></br>
+<p>Upload Your Photo Here
 
+
+
+<div="sandbox-container div">
+Availability Period: <%= f.date_select :start_date %>
+<%= f.date_select :end_date %>
+</div>
+</div>
+<br><%= f.file_field :image %></p></br>
+<p><%=f.submit%></p>
 <%end%>
+

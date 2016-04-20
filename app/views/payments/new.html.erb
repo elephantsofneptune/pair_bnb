@@ -1,0 +1,43 @@
+<h1>Pay and Confirm Your Order:</h1>
+
+
+<body>
+  <% content_for(:body_attributes) do %>
+    data-no-turbolink="true"
+  <% end %>
+<%= form_for(@payment) do |f| %>
+
+    <div class="field">
+    <%= f.hidden_field :reservation_id, value: @reservation.id %><br>
+    </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= @reservation.start_date %><br>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= @reservation.end_date %><br>
+      <%= @reservation_id %>
+
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<div id ="dropin"> </div>
+<script type="text/javascript">
+  function setupBT() {
+    braintree.setup("<%= @client_token %>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+
+</script>
+<% end %>
+</body>
