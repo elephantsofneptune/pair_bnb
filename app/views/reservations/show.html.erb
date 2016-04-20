@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
@@ -20,4 +21,7 @@
    <%= link_to 'Back', reservations_path, class: "btn btn-secondary"  %>
  </div>
 
- <%= link_to 'Pay Now', new_payment_path + "?id=" + @reservation.id.to_s %>
+
+
+ <%= link_to 'Pay Now', new_payment_path + "?id=" + @reservation.id.to_s, data: { no_turbolink: true} %>
+

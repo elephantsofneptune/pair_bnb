@@ -1,7 +1,10 @@
 <h1>Pay and Confirm Your Order:</h1>
 
 
-
+<body>
+  <% content_for(:body_attributes) do %>
+    data-no-turbolink="true"
+  <% end %>
 <%= form_for(@payment) do |f| %>
 
     <div class="field">
@@ -21,7 +24,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-
+<div id ="dropin"> </div>
 <script type="text/javascript">
   function setupBT() {
     braintree.setup("<%= @client_token %>", 'dropin', {
@@ -36,6 +39,5 @@
   else window.onload = setupBT;
 
 </script>
-
 <% end %>
-
+</body>
