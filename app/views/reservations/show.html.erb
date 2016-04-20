@@ -13,11 +13,11 @@
 
 <p> Listing ID: <%=@reservation.listing.id.to_i%></p>
 <p> Listing $$$: <%=@reservation.listing.price.to_i%></p>
-<p> Total $$$: <%=@stay.to_i%></p>
-
+<p> Total $$$: <%=@reservation.stay.to_i%></p>
+<p> Reservation ID: <%=@reservation.id%></p>
 <div class="btn-toolbar">
    <%= link_to "Edit", edit_reservation_path(@reservation), class: "btn btn-secondary"  %>
    <%= link_to 'Back', reservations_path, class: "btn btn-secondary"  %>
  </div>
 
- <%= link_to 'Pay Now', new_payment_path + "?id=" + @reservation.secure_token.to_s %>
+ <%= link_to 'Pay Now', new_payment_path + "?id=" + @reservation.id.to_s %>

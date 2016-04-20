@@ -18,7 +18,8 @@ class ReservationsController < ApplicationController
   def new
     @listing = Listing.find(params[:id])
     @user = User.find(@listing.user_id)
-    @reservation = Reservation.new
+    @reservation = @listing.reservations.new
+    @reservation.stay = @reservation.listing.price.to_i*(@reservation.end_date - @reservation.start_date)
   end
 
   # GET /reservations/1/edit
@@ -30,6 +31,7 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = current_user.reservations.new(reservation_params)
+    @reservation.stay = @reservation.listing.price.to_i*(@reservation.end_date - @reservation.start_date)
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -76,6 +78,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :listing_id)
+      params.require(:reservation).permit(:start_date, :end_date, :listing_id, :token, :stay)
     end
 end
